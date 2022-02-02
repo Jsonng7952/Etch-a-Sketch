@@ -1,8 +1,3 @@
-const gridContainer = document.querySelector('.grid-container');
-gridContainer.style = 'border: 2px solid purple; height: 50vh; width: 50vh; display: flex;';
-
-let size = 10;
-
 function changeGrid(){
     // Create grid
     for(let i = 0; i < size; i++){
@@ -11,8 +6,7 @@ function changeGrid(){
         for(let j = 0; j < size; j++){
             let row = document.createElement('div');
             row.id = `grid`;
-            //row.innerHTML = `${i},${j}`;
-            row.style = 'display: inline; border: 1px solid black; flex: 1';
+            row.style = 'display: flex; background-color: white; flex: 1';
 
             column.appendChild(row);
         }
@@ -24,9 +18,10 @@ function changeGrid(){
     const grid = document.querySelectorAll('#grid');
     grid.forEach((square) => {
         square.addEventListener('mouseover', function(e){
-            e.target.style.background = 'yellow';
+            e.target.style.background = 'black';
         });
     });
+
 }
 
 function resetGrid(){
@@ -35,18 +30,27 @@ function resetGrid(){
     }
 }
 
-changeGrid();
+const gridContainer = document.querySelector('.grid-container');
+gridContainer.style = 'border: 10px solid white; box-shadow: 0 0 10px yellow; border-style: ridge; height: 50vh; width: 50vh; display: flex;';
+let size = 10;
 
-const btnContainer = document.querySelector('.btn-container');
-const changeSizeBtn = document.createElement('button');
-changeSizeBtn.classList.add('sizebtn');
-changeSizeBtn.innerHTML = 'Change Grid Size';
-btnContainer.appendChild(changeSizeBtn);
+const textSize = document.querySelector('.text-size');
+textSize.innerHTML = `${size} x ${size}`;
+
+// Getting the button to change the size of the grid.
+const sizeBtn = document.querySelector('.size-btn');
 
 // Change size of grid
-changeSizeBtn.addEventListener('click', () => {
-    size = prompt("Enter size of grid");
-    resetGrid();
-    changeGrid();
+sizeBtn.addEventListener('click', () => {
+    let input = prompt("Enter size of grid, limited to size (1 - 100)");
+    if(input > 0 && input <= 100){
+        size = input;
+        textSize.innerHTML = `${size} x ${size}`;
+        resetGrid();
+        changeGrid();        
+    }
+
 })
+
+changeGrid();
 

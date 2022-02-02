@@ -1,5 +1,42 @@
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;    
+    background: #232526;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #414345, #232526);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #414345, #232526); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    height: 100vh;
+    gap: 10px;
+    font-family:'Courier New', Courier, monospace;
+}
+
+h1 {
+    color: white;
+    text-shadow: 0 0 10px yellow;
+}
+
 .body {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.bottom-container {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.size-btn {
+    padding: 15px 15px;
+    text-align: center;
+    display: inline-block;
+    font-size: 16px;
+}
+
+.text-size {
+    color: white;
+    font-size: 28px;
+    font-weight: bold;
 }
