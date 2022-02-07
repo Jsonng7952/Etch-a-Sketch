@@ -31,7 +31,7 @@ function resetGrid(){
 }
 
 const gridContainer = document.querySelector('.grid-container');
-gridContainer.style = 'border: 10px solid white; box-shadow: 0 0 10px yellow; border-style: ridge; height: 50vh; width: 50vh; display: flex;';
+gridContainer.style = 'border: 10px solid white; box-shadow: 0 0 10px yellow; border-style: ridge; height: 600px; width: 600px; display: flex;';
 let size = 10;
 
 const textSize = document.querySelector('.text-size');
